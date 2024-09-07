@@ -1,38 +1,179 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Minecraft";
+  src: url("./assets/Minecraft.ttf") format("truetype");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #9c1030;
+  font-family: "Minecraft", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: #f22353;
+  outline: 5px solid #000000;
+  padding-block: 5px;
+  padding-inline: 30px;
+}
+
+.logo {
+  width: 200px;
+  height: 96.23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes scaleUp {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the selected buttons */
+.selected-button-an {
+  animation: scaleUp 0.1s ease-out;
+}
+
+.button1 {
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+  box-shadow: 5px 5px 0px 5px rgb(0, 0, 0);
+}
+
+.button1:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px 3px rgb(0, 0, 0);
+  /* outline: 5px solid #ffffff; */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.button1:active {
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0px 5px rgb(0, 0, 0);
+}
+
+.button2 {
+  transition: transform 0.1s ease;
+}
+
+.button2:hover {
+  transform: translate(-1px, -1px);
+}
+
+.button2:active {
+  transform: translate(0px, 0px);
+}
+
+.main-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #ffffff;
+  /* width: fit-content; */
 }
 
-.App-link {
-  color: #61dafb;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.left-part {
+  height: 720px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem; /* Tailwind's gap-4 */
+}
+
+.selected-buttons {
+  padding: 1rem; /* Tailwind's p-4 */
+}
+
+.right-part {
+  height: 701.79px;
+  width: 540px;
+  /* box-shadow: 5px 5px 0px 5px rgb(0, 0, 0); /* Corrected box-shadow */
+  /* outline: 5px solid #000000; */
+  box-sizing: border-box;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  box-shadow: 7px 7px 0px 5px rgb(0, 0, 0); /* Corrected box-shadow */
+  outline: 5px solid #000000;
+}
+
+.bayangan {
+  font-size: x-large;
+  outline: 3px solid #000000;
+  box-shadow: 4px 4px 0px 2px rgb(0, 0, 0); /* Outer outline */
+}
+
+.video-container video {
+  /* position: absolute; */
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video {
+  outline: 5px solid #000000;
+  box-shadow: 0px 0px 0px 5px rgb(0, 0, 0);
+}
+
+.vid-an {
+  animation: fadeIn 0.2s ease-in-out;
+}
+.static_box {
+  outline: 4px solid #000000;
+  display: inline-block;
+  background-color: white;
+  padding-inline: 5px;
+  /* padding-block: 1px; */
+  padding-top: 6px;
+}
+
+.background-image {
+  background-image: url("./assets/STATIC.jpg"); /* Replace with your image path */
+  background-size: cover; /* Ensure the image covers the entire div */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  width: 100%; /* Set the width of the div */
+  height: 100%; /* Set the height of the div */
 }
